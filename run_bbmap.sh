@@ -25,12 +25,13 @@ source activate mypy3
 function m_bbmap {
 # for i in *
 # do
-bbmap.sh in='clean_data/${i}_clean_#.fastq' out=mapped.sam ref=${i}/blast_contigs.fa nodisk
-
+i=$(eval "echo "$1" | cut -d / -f9 |cut -d _ -f1")
+bbmap.sh in1=${1}_clean_1.fastq in1=${1}_clean_2.fastq out=mapped.sam ref=assemble/${i}/blast_contigs.fa nodisk
+# https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/usage-guide/
 # done
 
 }
 export -f m_bbmap
 
-parallel m_bbmap ::: /groups/cgsd/shengxu/epilepsy/LauG_Metagenomics_CPOS-221215-MHWK-15822a/LauG_Metagenomics_CPOS-221215-MHWK-15822a/clean_data/*
+parallel -j 4 m_bbmap ::: /groups/cgsd/shengxu/epilepsy/LauG_Metagenomics_CPOS-221215-MHWK-15822a/LauG_Metagenomics_CPOS-221215-MHWK-15822a/clean_data/*
 

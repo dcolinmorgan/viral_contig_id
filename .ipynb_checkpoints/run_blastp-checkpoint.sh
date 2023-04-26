@@ -21,19 +21,19 @@ source activate mypy3
 
 
 
-contigs=$(ls assemble/unfinished/*/prod.prots)
+contigs=$(ls assemble/*/prod.prots)
 
 function blastpN {
 # for i in $contigs
 # do
 # blastp $i 
 # i=$1
-i=$(eval "echo "$1" | cut -d / -f1,2,3")
+i=$(eval "echo "$1" | cut -d / -f1,2")
 
 blastp -query $1 -db /groups/cgsd/dcmorgan/virusdb/refseq_viral_db -out $i/viral_hits.blast -outfmt 6
 # done
 }
 export -f blastpN
 
-parallel blastpN ::: assemble/unfinished/*/prod.prots
+parallel blastpN ::: assemble/*/prod.prots
 
