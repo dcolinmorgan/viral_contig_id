@@ -3,11 +3,11 @@
 #PBS -l nodes=1:ppn=48
 #PBS -l mem=500g
 #PBS -l walltime=96:00:00
-#PBS -N zoev
+#PBS -N dvf
 #PBS -q cgsd 
-#PBS -e .zVerr
-#PBS -o .zVout
-#qsub run/epilepsy/zoe_virus.sh
+#PBS -e .dvfe
+#PBS -o .dvfo
+#qsub run/epilepsy/dvf.sh
 
 # module load python3 cuda11.0/toolkit/11.0.3 cudnn8.0-cuda11.0/8.0.5.39
 

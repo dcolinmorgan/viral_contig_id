@@ -1,8 +1,12 @@
 #PBS -l nodes=1:ppn=40
 #PBS -l mem=200gb
+#PBS -N mpa4
 #PBS -l walltime=444:00:00
 #PBS -q cgsd
-###qsub run/gcn/pbs_metaphlan
+#PBS -e .mpa4e
+#PBS -o .mpa4o
+###qsub run/gcn/run_mpa.sh
+
 
 ##cd $PBS_O_WORKDIR
 

@@ -5,8 +5,8 @@
 #PBS -l walltime=96:00:00
 #PBS -N bpz
 #PBS -q cgsd 
-#PBS -e .zVerr
-#PBS -o .zVout
+#PBS -e .bpze
+#PBS -o .bpzo
 #qsub run/epilepsy/run_blastp.sh
 
 # module load python3 cuda11.0/toolkit/11.0.3 cudnn8.0-cuda11.0/8.0.5.39

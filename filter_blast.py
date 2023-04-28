@@ -6,7 +6,7 @@ import subprocess
 # rc = call("./sleep.sh")
 os.chdir('/home/dcmorgan/')
 
-for i in glob.glob('assemble/*'):
+for i in glob.glob('assemble/unfinished/*'):
     os.chdir(i)
     # try:
     reads=pd.read_csv('final_contigs.fa',names=['name','seq'])
