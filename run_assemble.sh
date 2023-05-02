@@ -11,9 +11,18 @@ cd /groups/cgsd/shengxu/epilepsy/LauG_Metagenomics_CPOS-221215-MHWK-15822a/LauG_
 
 module load megahit
 #for sample in `cat $idlist`
-for i in $(cat idlist)
+for i in $(cat idlist_2)
 do
     megahit -1 clean_data/${i}_clean_1.fastq -2 clean_data/${i}_clean_2.fastq -t 48 -o ~/assemble/$i
 done
 
 
+
+cd /groups/cgsd/shengxu/epilepsy/LauG_Metagenomics_CPOS-221215-MHWK-15822a/LauG_Metagenomics_CPOS-221215-MHWK-15822a/old-data/
+
+module load megahit
+#for sample in `cat $idlist`
+for i in $(cat idlist)
+do
+    megahit -1 clean_data/${i}_clean_1.fastq -2 clean_data/${i}_clean_2.fastq -t 48 -o ~/assemble/$i
+done

@@ -26,3 +26,9 @@ do
 done
 
 
+cd /groups/cgsd/shengxu/epilepsy/LauG_Metagenomics_CPOS-221215-MHWK-15822a/LauG_Metagenomics_CPOS-221215-MHWK-15822a/old-data/
+
+for i in $(cat idlist_2)
+do
+    metaphlan no_duplicated/${i}_good_out_R1.fastq,no_duplicated/${i}_good_out_R2.fastq --bowtie2out ~/epi_metaphlan_out/${i}.bowtie2.bz2 --nproc 40 --input_type fastq -o m_out/${i}.txt -t rel_ab_w_read_stats -s ~/epi_sam_out/${i}.sam
+done
